@@ -1,0 +1,24 @@
+<h2>One-way data binding </h2>
+<h3>String Interpolation</h3>
+<p>{{ username }}</p>
+<p>{{ obj.name }}</p>
+
+<h3>Property binding</h3>
+<div [innerText]="text" [className]="backgroundColor"></div>
+
+<h3>Event Binding</h3>
+<!-- (event)="function()" -->
+<button (click)="onClick()">Clear</button><br>
+<label>keyup: </label>
+<input (keyup)="onKeyUp($event)"/><br>
+<label>change: </label>
+<input (change)="onChange()"/><br>
+<label>input: </label>
+<input (input)="onInput($event)" />
+
+<h2>Two-way Data Binding</h2>
+<label>Firstname: </label>
+<input [(ngModel)]="firstname"/>
+<br>
+<label>Firstname2: </label>
+<input [(ngModel)]="firstname"/>

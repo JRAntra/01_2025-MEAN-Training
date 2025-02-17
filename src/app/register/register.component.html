@@ -1,0 +1,15 @@
+<h2>Template-driven Forms</h2>
+<p>1. Uses ngForm, ngSubmit, ngModel</p>
+<p>2. Logic stays in the template</p>
+<h2>Reactive Forms</h2>
+<form [formGroup]="registerForm">
+    <label>Username: </label>
+    <input formControlName="username"/><br>
+    <label>Email Addres: </label>
+    <input formControlName="email"/><br>
+    <label>Password: </label>
+    <input formControlName="password"/><br>
+    <label>Confirm Password: </label>
+    <input /><br>
+    <button>Submit</button>
+</form>
