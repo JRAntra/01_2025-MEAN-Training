@@ -1,0 +1,101 @@
+<h1>Directives and Pipes</h1>
+
+<h3>Directives</h3>
+<p>Components are directives with templates</p>
+
+<ul>
+  <li>Component Directives</li>
+  <li>Structual Directives-- ngIf , ngFor, ngSwitch</li>
+  <li>Attributes Directives -- ngClass, ngStype, ngModel</li>
+  <li>Custom Directives</li>
+</ul>
+<button (click)="onSelect('structral')">show structral</button>
+<button (click)="onSelect('attribute')">show attribute</button>
+<button (click)="onSelect('custom')">show attribute</button>
+
+<ng-container [ngSwitch]="showTemplate">
+  <ng-container *ngSwitchCase="'structral'">
+    <div *ngIf="isShow">
+      <div>display ngIf</div>
+    </div>
+
+    <div
+      *ngFor="let item of arr; let i = index"
+      style="border: 1px solid black"
+    >
+      <p>the {{ i }}th position</p>
+      <p>The name is {{ item["name"] }}</p>
+      <p>The position is {{ item["Occ"] }}</p>
+    </div>
+
+    <div [ngSwitch]="showsColor">
+      <p *ngSwitchCase="'red'">RED</p>
+      <p *ngSwitchCase="'blue'">BLUE</p>
+      <p *ngSwitchCase="'yellow'">RED</p>
+      <p *ngSwitchDefault>
+        Sorry there is no such color called {{ showsColor }}
+      </p>
+    </div>
+
+    <hr />
+    <br />
+
+    <p *ngFor="let name of names">
+      <!-- <p *ngIf="name.toLocaleLowerCase() !== name">{{name}}</p> -->
+      <ng-container *ngIf="name.toLocaleLowerCase() !== name">
+        {{ name }}
+      </ng-container>
+    </p>
+
+    <!-- <ng-template [ngIf]="expression">
+          <div>
+            <h1>NGIF</h1>
+          </div>
+        </ng-template>
+        
+        <ng-template [ngFor]="let item of expression">
+          <div>
+            <h1>NGIF</h1>
+          </div>
+        </ng-template> -->
+
+    <ng-template> This is a NG template </ng-template>
+  </ng-container>
+  <ng-container *ngSwitchCase="'attribute'"
+    ><!-- <div [ngClass]="'container input'">NgClass</div>
+        <div class="container input"></div>
+        
+        <div [ngClass]="{'container': 15 > 10 ? true : false , 'input': true}">NgClass</div>
+        <div [ngClass]="{'container': 15 > 10 ? true : false }">NgClass</div>
+        <div [class.container]="15 > 10 ? true : false">NgClass</div> -->
+
+    <p
+      *ngFor="let name of names"
+      [ngClass]="{
+        red: name.toLocaleLowerCase() !== name,
+        green: name.toLocaleLowerCase() === name
+      }"
+    >
+      {{ name }}
+    </p>
+
+    <div style="background-color: 'red'">NgStyle</div>
+    <div [ngStyle]="{ backgroundColor: 'red' }">NgStyle</div>
+    <!-- <div [ngStyle]="{'backgroundColor':}">NgStyle</div> -->
+
+    <p
+      *ngFor="let name of names"
+      [ngStyle]="{
+        backgroundColor: name.toLocaleLowerCase() !== name ? 'red' : 'green',
+        color: name.toLocaleLowerCase() !== name ? 'white' : 'black'
+      }"
+    >
+      {{ name }}
+    </p></ng-container
+  >
+  <ng-container *ngSwitchCase="'custom'">
+
+    <h1 appChangeColor>This a Banner Area with background Color</h1>
+
+  </ng-container>
+</ng-container>

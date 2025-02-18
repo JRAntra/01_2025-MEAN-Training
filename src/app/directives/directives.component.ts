@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
+  selector: 'app-directives',
   standalone: false,
-  styleUrl: './app.component.scss'
+  templateUrl: './directives.component.html',
+  styleUrl: './directives.component.scss'
 })
-export class AppComponent {
+export class DirectivesComponent {
   title = 'Training';
   isShow = []
   arr=[
@@ -19,4 +19,12 @@ export class AppComponent {
   showsColor="green"
 
   names= ["JR", "David", "tom","patrick"]
+
+  showTemplate = 'attribute'
+
+  ngStyleColor = "green"
+
+  onSelect(name:string){
+    this.showTemplate = name;
+  }
 }
