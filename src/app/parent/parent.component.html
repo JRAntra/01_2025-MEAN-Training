@@ -1,0 +1,7 @@
+<p>parent works!</p>
+<!-- <app-child [childDataSource]="dataSource"></app-child> -->
+ <button (click)="logParentData()">log parent data</button>
+ <button (click)="logParentNumber()">log parent number</button>
+
+<hr>
+<app-child  (passValue)="onChildEventTriggered($event)"></app-child>
