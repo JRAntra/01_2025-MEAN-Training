@@ -1,0 +1,29 @@
+<!-- <p>Angular Component LifeCycle Hooks</p>
+
+
+<ol>
+    <li>ngOnChanges</li>                 for the updates => ngOnchanges => ngDoCheck => ngAfterContentChecked => ngAfterViewChecked
+    <li>ngOnInit</li>
+    <li>ngDoCheck</li>                   for the initialize => ngOnchanges => ngOninit => ngDoCheck=> ngAfterContentInit => ngAfterContentChecked => ngAfterViewInit => ngAfterViewChecked
+
+    <li>ngAfterContentInit</li>
+    
+    <li>ngAfterContentChecked</li>        document.querySelector("#id").style.backgroundColor = "red"
+
+    <li>ngAfterViewInit</li>
+
+    <li>ngAfterViewChecked</li>
+
+    <li>ngOnDestroy</li>
+</ol>
+
+<div *ngIf="displayContent"  id="container">
+
+</div> -->
+<button [routerLink]="['/child']">go to child</button>
+<div *ngFor="let item of displayInfo">
+   <div>{{item['title']}}</div>
+
+</div>
+
+<!-- <app-child [varFromParent]="displayContent"></app-child> -->
