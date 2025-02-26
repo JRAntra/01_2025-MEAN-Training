@@ -1,0 +1,57 @@
+<!-- register.component.html -->
+<form [formGroup]="registerForm">
+  <div class="form-container">
+    <h2>Register</h2>
+
+    <!-- Username Field -->
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        id="username"
+        placeholder="Enter username"
+        formControlName="username"
+      />
+    </div>
+
+    <!-- Email Field -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        placeholder="Enter email"
+        formControlName="email"
+      />
+    </div>
+    <p *ngIf="email.hasError('customRequired') && email.touched" [ngStyle]="{'color':'red'}">the email is required</p>
+    <p *ngIf="email.hasError('customMinLength') && email.touched" [ngStyle]="{'color':'red'}">the email should at least contains 5 letters</p>
+    <p *ngIf="email.hasError('emailExist') && email.touched" [ngStyle]="{'color':'red'}">the email already existed</p>
+
+</div>
+<button (click)="checkError()">Check Validation Error</button>
+  <!-- Password Field -->
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      placeholder="Enter password"
+      formControlName="password"
+    />
+  </div>
+
+  <!-- Confirm Password Field -->
+  <div class="form-group">
+    <label for="confirmPassword">Confirm Password</label>
+    <input
+      type="password"
+      id="confirmPassword"
+      placeholder="Confirm password"
+      formControlName="confirmPassword"
+    />
+  </div>
+
+  <!-- Submit Button -->
+  <button type="submit">Register</button>
+</form>
