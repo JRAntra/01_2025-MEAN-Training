@@ -1,0 +1,12 @@
+$primary-color: orange;
+.job-container{
+   background-color: rgb(179, 179, 153);
+}
+
+h1{
+    color:$primary-color;
+}
+button{
+    background-color: $primary-color;
+    color:white;
+}
