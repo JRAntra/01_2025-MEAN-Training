@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit,EventEmitter, Output } from '@angular/core';
 import { JobsService } from '../../jobs.service';
 import { JobDetail } from '../../jobs.interface';
 
@@ -10,17 +10,23 @@ import { JobDetail } from '../../jobs.interface';
   styleUrl: './jobs-card.component.scss'
 })
 export class JobsCardComponent implements OnInit {
-  @Input() jobId! :string;
-  job?: JobDetail
-  
+  @Input() jobId!: string;
+  @Output() interestChange = new EventEmitter<{ job: JobDetail, isAdded: boolean }>();
+  job?: JobDetail;
+  isAdded: boolean = false;
 
+  constructor(private jobsService: JobsService) {}
 
-  constructor(private jobservice: JobsService) {}
   ngOnInit(): void {
-    this.jobservice.fetchJos(this.jobId).subscribe((res: JobDetail) => {
-      // console.log(res);
+    
+    this.jobsService.fetchJos(this.jobId).subscribe((res: JobDetail) => {
       this.job = res;
     });
   }
-
+  toggleInterested(): void {
+    if (!this.job) return;
+    this.isAdded = !this.isAdded;
+    
+    this.interestChange.emit({ job: this.job, isAdded: this.isAdded });
+  }
 }

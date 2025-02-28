@@ -1,9 +1,11 @@
 <div class="job-container">
     <h1>Hacker News Jobs Board</h1>
-
-<div *ngFor="let id of jobIdDisplayList">
-    <app-jobs-card [jobId]="id"></app-jobs-card>
-</div>
-
-<button (click) ="loadMoreJobs()">Load more jobs</button>
-</div>
+  
+    <div *ngFor="let id of jobIdDisplayList">
+      
+      <app-jobs-card [jobId]="id"></app-jobs-card>
+    </div>
+  
+    <button (click)="loadMoreJobs()">Load more jobs</button>
+  </div>
+  

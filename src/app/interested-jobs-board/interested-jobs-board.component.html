@@ -1,1 +1,15 @@
-<p>interested-jobs-board works!</p>
+<div class="interested-board-container">
+    <h1>Interested Jobs Board</h1>
+  
+    <div *ngFor="let job of interestedJobs" class="job-card">
+      <div class="job-info">
+        <p class="job-title">{{ job.title }}</p>
+        <p class="job-by">{{ job.by }}</p>
+        <p class="job-time">{{ job.time * 1000 | date:'medium' }}</p>
+      </div>
+      
+      <button (click)="removeJob(job.id)">Delete</button>
+    </div>
+  </div>
+  
+  

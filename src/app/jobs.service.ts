@@ -10,7 +10,6 @@ import { JobDetail } from './jobs.interface';
 export class JobsService {
   // get url  https://hacker-news.firebaseio.com/v0/jobstories.json
   private joburl = 'https://hacker-news.firebaseio.com/v0/jobstories.json'
-  private jobdetail = 'https://hacker-news.firebaseio.com/v0/item/35908337.json'
 
   constructor(
     private http: HttpClient
@@ -24,6 +23,7 @@ export class JobsService {
   fetchJos(jobsId:string): Observable<JobDetail> {
     return this.http.get<JobDetail>(`https://hacker-news.firebaseio.com/v0/item/${jobsId}.json`)
   }
+  
 
   
 }
