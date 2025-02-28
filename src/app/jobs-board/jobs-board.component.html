@@ -3,7 +3,10 @@
   
     <div *ngFor="let id of jobIdDisplayList">
       
-      <app-jobs-card [jobId]="id"></app-jobs-card>
+      <app-jobs-card 
+      [jobId]="id" 
+      (interestChange)="handleInterestChange($event)">
+    </app-jobs-card>
     </div>
   
     <button (click)="loadMoreJobs()">Load more jobs</button>
